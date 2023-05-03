@@ -1,10 +1,13 @@
 const express = require("express");
-const router = express.Router();
 const studentController = require("../controllers/studentController");
+const authMiddleware = require("../utils/authMiddleware");
 
-router.post("/register", studentController.registerStudent);
-router.post("/login", studentController.loginStudent);
-router.post("/projects", studentController.addProject);
-router.get("/projects", studentController.getProjects);
+const router = express.Router();
+
+router.get(
+  "/projects",
+  authMiddleware.isStudent,
+  studentController.getStudentProjects
+);
 
 module.exports = router;

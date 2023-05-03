@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const StudentSchema = new mongoose.Schema({
-  name: {
+const studentSchema = new mongoose.Schema({
+  studentName: {
     type: String,
     required: true,
   },
@@ -14,21 +14,22 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  college: {
+  enrollmentNumber: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  collegeId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "College",
+    required: true,
   },
   projects: [
     {
-      title: String,
-      description: String,
-      status: {
-        type: String,
-        enum: ["Pending", "Accepted", "Rejected"],
-        default: "Pending",
-      },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Project",
     },
   ],
 });
 
-module.exports = mongoose.model("Student", StudentSchema);
+module.exports = mongoose.model("Student", studentSchema);

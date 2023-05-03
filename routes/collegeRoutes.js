@@ -1,23 +1,28 @@
 const express = require("express");
-const router = express.Router();
 const collegeController = require("../controllers/collegeController");
+const authMiddleware = require("../utils/authMiddleware");
 
-router.post("/register", collegeController.registerCollege);
-router.post("/login", collegeController.loginCollege);
-router.post("/:collegeId/students", collegeController.addStudent);
-router.get("/:collegeId/students/:studentId", collegeController.getStudent);
-router.put("/:collegeId/students/:studentId", collegeController.updateStudent);
-router.delete(
-  "/:collegeId/students/:studentId",
-  collegeController.deleteStudent
+const router = express.Router();
+
+router.post(
+  "/add-student",
+  authMiddleware.isCollege,
+  collegeController.addStudent
 );
 router.get(
-  "/:collegeId/students/:studentId/projects",
-  collegeController.getProjects
+  "/projects",
+  authMiddleware.isCollege,
+  collegeController.getAllProjects
 );
-router.put(
-  "/:collegeId/students/:studentId/projects/:projectId",
+router.patch(
+  "/projects/:projectId",
+  authMiddleware.isCollege,
   collegeController.updateProjectStatus
+);
+router.get(
+  "/students",
+  authMiddleware.isCollege,
+  collegeController.getAllStudents
 );
 
 module.exports = router;
