@@ -4,7 +4,7 @@
   "description": "This is a backend system for a university website that allows for the management of multiple colleges and students using Node.js and MongoDB. The website includes two types of login options, one for colleges and one for students.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
