@@ -4,7 +4,6 @@ const Project = require("../models/Project");
 const bcrypt = require("bcrypt");
 
 exports.addStudent = async (req, res) => {
-  console.log(req.body);
   try {
     const { studentName, email, password, enrollmentNumber } = req.body;
 
@@ -27,7 +26,6 @@ exports.addStudent = async (req, res) => {
       student,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       message: "An error occurred",
       error,
@@ -80,7 +78,6 @@ exports.updateProjectStatus = async (req, res) => {
 };
 
 exports.getAllStudents = async (req, res) => {
-  // console.log(req.user.id);
   try {
     const college = await College.findById(req.user.id).populate("students");
     const students = college.students;
@@ -89,7 +86,6 @@ exports.getAllStudents = async (req, res) => {
       students,
     });
   } catch (error) {
-    // console.log(error);
     res.status(500).json({
       message: "An error occurred",
       error,

@@ -35,7 +35,6 @@ exports.registerCollege = async (req, res) => {
 };
 
 exports.loginCollege = async (req, res) => {
-  // console.log(req.body);
   try {
     const { email, password } = req.body;
     const college = await College.findOne({ email });
@@ -53,7 +52,6 @@ exports.loginCollege = async (req, res) => {
       token,
     });
   } catch (error) {
-    // console.log(error);
     res.status(500).json({
       message: "An error occurred",
       error,
@@ -62,7 +60,6 @@ exports.loginCollege = async (req, res) => {
 };
 
 exports.loginStudent = async (req, res) => {
-  // console.log(req.body);
   try {
     const { email, password } = req.body;
     const student = await Student.findOne({ email });
@@ -80,7 +77,6 @@ exports.loginStudent = async (req, res) => {
       token,
     });
   } catch (error) {
-    // console.log(error);
     res.status(500).json({
       message: "An error occurred",
       error,
