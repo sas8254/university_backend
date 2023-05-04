@@ -75,6 +75,7 @@ exports.loginStudent = async (req, res) => {
     res.status(200).json({
       message: "Student logged in successfully",
       token,
+      student,
     });
   } catch (error) {
     res.status(500).json({
