@@ -1,4 +1,0 @@
-sarvaiyadarshan41
-LYtJVbANLvfF41Mh
-
-mongodb+srv://sarvaiyadarshan41:LYtJVbANLvfF41Mh@cluster0.pfwm9yu.mongodb.net/test
