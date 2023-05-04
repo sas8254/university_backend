@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const isCollege = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, "secret");
+    const decodedToken = jwt.verify(token, process.env.SECRET);
 
     if (decodedToken.role === "college") {
       req.user = {
@@ -22,7 +23,7 @@ const isCollege = (req, res, next) => {
 const isStudent = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, "secret");
+    const decodedToken = jwt.verify(token, process.env.SECRET);
 
     if (decodedToken.role === "student") {
       req.user = {

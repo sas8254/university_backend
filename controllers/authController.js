@@ -2,9 +2,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const College = require("../models/College");
 const Student = require("../models/Student");
+require("dotenv").config();
 
 const generateToken = (id, role) => {
-  return jwt.sign({ id, role }, "secret", {
+  return jwt.sign({ id, role }, process.env.SECRET, {
     expiresIn: "1d",
   });
 };

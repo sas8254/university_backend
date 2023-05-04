@@ -9,14 +9,13 @@ const bodyParser = require("body-parser");
 
 dotenv.config();
 
+const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/university";
+
 mongoose
-  .connect(
-    "mongodb+srv://sarvaiyadarshan41:LYtJVbANLvfF41Mh@cluster0.pfwm9yu.mongodb.net/test",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error(err));
 
