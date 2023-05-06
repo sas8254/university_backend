@@ -51,6 +51,7 @@ exports.loginCollege = async (req, res) => {
     res.status(200).json({
       message: "College logged in successfully",
       token,
+      college,
     });
   } catch (error) {
     res.status(500).json({

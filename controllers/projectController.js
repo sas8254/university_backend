@@ -57,7 +57,6 @@ exports.downloadProject = async (req, res) => {
   try {
     const { projectId } = req.params;
     const project = await Project.findById(projectId);
-
     res.set("Content-Disposition", `attachment; filename=${project.fileLink}`);
     res.redirect(project.fileLink);
   } catch (error) {
@@ -67,3 +66,5 @@ exports.downloadProject = async (req, res) => {
     });
   }
 };
+
+

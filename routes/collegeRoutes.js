@@ -25,4 +25,10 @@ router.get(
   collegeController.getAllStudents
 );
 
+router.get(
+  "/student/:studentId",
+  authMiddleware.isCollege,
+  collegeController.getStudent
+);
+
 module.exports = router;
