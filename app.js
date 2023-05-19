@@ -6,6 +6,7 @@ const studentRoutes = require("./routes/studentRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const authRoutes = require("./routes/authRoutes");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ mongoose
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use("/api/colleges", collegeRoutes);
 app.use("/api/students", studentRoutes);
