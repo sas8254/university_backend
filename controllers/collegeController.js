@@ -106,3 +106,17 @@ exports.getStudent = async (req, res) => {
     });
   }
 };
+
+exports.getAllColleges = async (req, res) => {
+  try {
+    const colleges = await College.find({}, "_id collegeName");
+    res.status(200).json({
+      colleges,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "An error occurred",
+      error,
+    });
+  }
+};

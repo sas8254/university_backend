@@ -31,4 +31,6 @@ router.get(
   collegeController.getStudent
 );
 
+router.get("/allcolleges", collegeController.getAllColleges);
+
 module.exports = router;
