@@ -19,6 +19,11 @@ const studentSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  aadharNumber: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   collegeId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "College",

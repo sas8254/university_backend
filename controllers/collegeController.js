@@ -5,7 +5,8 @@ const bcrypt = require("bcrypt");
 
 exports.addStudent = async (req, res) => {
   try {
-    const { studentName, email, password, enrollmentNumber } = req.body;
+    const { studentName, email, password, enrollmentNumber, aadharNumber } =
+      req.body;
 
     const college = await College.findById(req.user.id);
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -14,6 +15,7 @@ exports.addStudent = async (req, res) => {
       email,
       password: hashedPassword,
       enrollmentNumber,
+      aadharNumber,
       collegeId: college._id,
     });
 

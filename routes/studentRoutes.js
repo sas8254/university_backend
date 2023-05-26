@@ -10,4 +10,12 @@ router.get(
   studentController.getStudentProjects
 );
 
+router.post("/signup", studentController.signup);
+
+router.patch(
+  "/student",
+  authMiddleware.isStudent,
+  studentController.editStudent
+);
+
 module.exports = router;
