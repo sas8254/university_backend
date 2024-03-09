@@ -40,7 +40,7 @@ SECRET=your_personal_secret
 - Two types of login options: college login and student login
 - College login allows colleges to view and manage projects submitted by students enrolled in that college
 - Student login allows students to upload and view the status of their projects
-- File upload functionality using multer middleware
+- File upload functionality using multer middleware on cloudinary.
 - Efficient and flexible management of large amounts of data using MongoDB
 
 ## Contributing
